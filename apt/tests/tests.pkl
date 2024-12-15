@@ -1,0 +1,10 @@
+amends "pkl:test"
+
+examples {
+    ["install"] {
+        import("install.pkl").output.text
+    }
+    ["remove"] {
+        import("remove.pkl").output.text
+    }
+}

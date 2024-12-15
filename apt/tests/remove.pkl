@@ -1,0 +1,4 @@
+amends ".../resources.pkl"
+import ".../apt.pkl"
+
+resources = apt.remove(new Listing { "git" "vim" })

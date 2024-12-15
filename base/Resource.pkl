@@ -1,0 +1,3 @@
+module declix.base.Resource
+
+abstract class Resource { }

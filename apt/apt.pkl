@@ -1,0 +1,31 @@
+abstract module declix.apt
+
+import ".../base/Resource.pkl"
+import ".../dpkg/dpkg.pkl"
+
+class Package extends Resource.Resource {
+    type: "apt"
+    name: String
+    state: dpkg.State
+    updateBeforeInstall: Boolean = false
+
+    fixed id: String = type + ":" + name
+}
+
+function install(names: Listing<String>): Listing<Resource.Resource> = new Listing {
+    for (pkg in names) {
+        new Package {
+            name = pkg
+            state = "installed"
+        }
+    }
+}
+
+function remove(names: Listing<String>): Listing<Resource.Resource> = new Listing {
+    for (pkg in names) {
+        new Package {
+            name = pkg
+            state = "missing"
+        }
+    }
+}

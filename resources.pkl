@@ -1,0 +1,6 @@
+module declix
+
+import "base/Resource.pkl"
+
+resources: Listing<Resource.Resource>
+

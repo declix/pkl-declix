@@ -1,0 +1,15 @@
+module declix.dpkg
+
+import ".../base/Resource.pkl"
+import ".../base/Content.pkl"
+
+class Package extends Resource.Resource {
+    type: "dpkg"
+    name: String
+    state: State
+    content: Content.Content
+
+    fixed id: String = type + ":" + name
+}
+
+typealias State = "installed" | "missing";
