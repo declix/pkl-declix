@@ -4,12 +4,13 @@ import ".../base/Resource.pkl"
 import ".../dpkg/dpkg.pkl"
 
 class Package extends Resource.Resource {
-    type: "apt"
+    fixed type = "apt"
+    fixed id = type + ":" + name
+
     name: String
     state: dpkg.State
     updateBeforeInstall: Boolean = false
 
-    fixed id: String = type + ":" + name
 }
 
 function install(names: Listing<String>): Listing<Resource.Resource> = new Listing {

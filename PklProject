@@ -2,7 +2,7 @@ amends "pkl:Project"
 
 package {
     name = "pkl-declix"
-    version = "0.0.2"
+    version = "0.0.3"
     baseUri = "package://pkl.declix.org/pkl-declix"
     license = "MIT"
     authors {

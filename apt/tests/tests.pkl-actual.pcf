@@ -1,0 +1,44 @@
+examples {
+  ["install"] {
+    """
+    resources {
+      new {
+        type = "apt"
+        id = "apt:git"
+        name = "git"
+        state = "installed"
+        updateBeforeInstall = false
+      }
+      new {
+        type = "apt"
+        id = "apt:vim"
+        name = "vim"
+        state = "installed"
+        updateBeforeInstall = false
+      }
+    }
+    
+    """
+  }
+  ["remove"] {
+    """
+    resources {
+      new {
+        type = "apt"
+        id = "apt:git"
+        name = "git"
+        state = "missing"
+        updateBeforeInstall = false
+      }
+      new {
+        type = "apt"
+        id = "apt:vim"
+        name = "vim"
+        state = "missing"
+        updateBeforeInstall = false
+      }
+    }
+    
+    """
+  }
+}
