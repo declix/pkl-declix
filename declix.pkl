@@ -1,4 +1,11 @@
-module declix.base.Content
+module declix.base
+
+
+abstract class Resource { 
+    fixed type: String
+    fixed id: String
+}
+
 
 typealias Content = String | File | Url | Base64 | Render | Hashed;
 

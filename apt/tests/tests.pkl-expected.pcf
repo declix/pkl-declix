@@ -4,17 +4,17 @@ examples {
     resources {
       new {
         type = "apt"
+        id = "apt:git"
         name = "git"
         state = "installed"
         updateBeforeInstall = false
-        id = "apt:git"
       }
       new {
         type = "apt"
+        id = "apt:vim"
         name = "vim"
         state = "installed"
         updateBeforeInstall = false
-        id = "apt:vim"
       }
     }
     
@@ -25,17 +25,17 @@ examples {
     resources {
       new {
         type = "apt"
+        id = "apt:git"
         name = "git"
         state = "missing"
         updateBeforeInstall = false
-        id = "apt:git"
       }
       new {
         type = "apt"
+        id = "apt:vim"
         name = "vim"
         state = "missing"
         updateBeforeInstall = false
-        id = "apt:vim"
       }
     }
     

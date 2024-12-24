@@ -1,6 +1,6 @@
-module declix
+module declix.resources
 
-import "base/Resource.pkl"
+import "declix.pkl"
 
-resources: Listing<Resource.Resource>
+resources: Listing<declix.Resource>
 

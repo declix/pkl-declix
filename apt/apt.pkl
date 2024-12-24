@@ -1,9 +1,9 @@
 abstract module declix.apt
 
-import ".../base/Resource.pkl"
+import ".../declix.pkl"
 import ".../dpkg/dpkg.pkl"
 
-class Package extends Resource.Resource {
+class Package extends declix.Resource {
     fixed type = "apt"
     fixed id = type + ":" + name
 
@@ -13,7 +13,7 @@ class Package extends Resource.Resource {
 
 }
 
-function install(names: Listing<String>): Listing<Resource.Resource> = new Listing {
+function install(names: Listing<String>): Listing<declix.Resource> = new Listing {
     for (pkg in names) {
         new Package {
             name = pkg
@@ -22,7 +22,7 @@ function install(names: Listing<String>): Listing<Resource.Resource> = new Listi
     }
 }
 
-function remove(names: Listing<String>): Listing<Resource.Resource> = new Listing {
+function remove(names: Listing<String>): Listing<declix.Resource> = new Listing {
     for (pkg in names) {
         new Package {
             name = pkg

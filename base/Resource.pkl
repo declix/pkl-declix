@@ -1,6 +1,0 @@
-module declix.base.Resource
-
-abstract class Resource { 
-    fixed type: String
-    fixed id: String
-}
