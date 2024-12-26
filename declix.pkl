@@ -6,6 +6,8 @@ abstract class Resource {
     fixed id: String
 }
 
+/// All resources with missing state should use this class to indicate it
+class Missing { }
 
 typealias Content = String | File | Url | Base64 | Render | Hashed;
 
@@ -28,7 +30,7 @@ class Hashed {
     sha256: String
 }
 
-function Resource(r: Resource): Content = new Base64 {
+function resource(r: Resource): Content = new Base64 {
     base64 = r.base64
     sha256 = r.sha256
 }

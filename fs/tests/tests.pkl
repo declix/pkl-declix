@@ -1,0 +1,10 @@
+amends "pkl:test"
+
+examples {
+    ["file"] {
+        import("file.pkl").output.text
+    }
+    ["dir"] {
+        import("dir.pkl").output.text
+    }
+}

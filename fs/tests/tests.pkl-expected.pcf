@@ -1,0 +1,49 @@
+examples {
+  ["file"] {
+    """
+    resources {
+      new {
+        type = "file"
+        id = "file:/tmp/missing_file"
+        path = "/tmp/missing_file"
+        state {}
+      }
+      new {
+        type = "file"
+        id = "file:/tmp/file_with_content"
+        path = "/tmp/file_with_content"
+        state {
+          owner = "test_user"
+          group = "test_group"
+          permissions = "777"
+          content = "TEST"
+        }
+      }
+    }
+    
+    """
+  }
+  ["dir"] {
+    """
+    resources {
+      new {
+        type = "dir"
+        id = "dir:/tmp/missing_dir"
+        path = "/tmp/missing_dir"
+        state {}
+      }
+      new {
+        type = "dir"
+        id = "dir:/tmp/dir"
+        path = "/tmp/dir"
+        state {
+          owner = "test_user"
+          group = "test_group"
+          permissions = "777"
+        }
+      }
+    }
+    
+    """
+  }
+}

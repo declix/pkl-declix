@@ -1,0 +1,18 @@
+amends ".../resources.pkl"
+import ".../declix.pkl"
+import "../fs.pkl"
+
+resources {
+    new fs.Dir {
+        path = "/tmp/missing_dir"
+        state = new fs.Missing {}
+    }
+    new fs.Dir {
+        path = "/tmp/dir"
+        state = new fs.DirPresent {
+            owner = "test_user"
+            group = "test_group"
+            permissions = "777"
+        }
+    }
+}

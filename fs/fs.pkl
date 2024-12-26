@@ -1,0 +1,36 @@
+abstract module declix.fs
+
+import ".../declix.pkl"
+
+typealias Missing = declix.Missing
+
+abstract class Node extends declix.Resource {
+    fixed id = type + ":" + path
+
+    path: String
+}
+
+typealias Permissions = String(matches(Regex(#"[0-7][0-7][0-7]"#)))
+
+abstract class NodePresent {
+    owner: String
+    group: String
+    permissions: Permissions
+}
+
+open class File extends Node  {
+    fixed type: "file"
+    state: Missing | FilePresent
+}
+
+class FilePresent extends NodePresent {
+    content: declix.Content
+}
+
+class Dir extends Node  {
+    fixed type: "dir"
+    state: Missing | DirPresent
+}
+
+class DirPresent extends NodePresent {
+}
