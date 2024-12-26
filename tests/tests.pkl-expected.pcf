@@ -1,25 +1,12 @@
 examples {
   ["content"] {
-    #"""
+    """
     stringContent = "TEST_STRING"
     urlContent {
       url = "http://example.com"
       sha256 = "000"
     }
-    resourceContent {
-      uri = "file:///home/mike/src/github.com/declix/pkl-declix/tests/tests.pkl"
-      text = """
-        amends "pkl:test"
-        
-        examples {
-            ["content"] {
-                import("content.pkl").output.text
-            }
-        }
-        """
-      base64 = "YW1lbmRzICJwa2w6dGVzdCIKCmV4YW1wbGVzIHsKICAgIFsiY29udGVudCJdIHsKICAgICAgICBpbXBvcnQoImNvbnRlbnQucGtsIikub3V0cHV0LnRleHQKICAgIH0KfQ=="
-    }
     
-    """#
+    """
   }
 }
