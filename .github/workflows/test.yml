@@ -20,7 +20,7 @@ jobs:
       with:
         pkl-version: "0.27.1"
 
-    - name: Install dependecies
+    - name: Install dependencies
       run: |
         sudo apt update
         sudo apt install --no-install-recommends --no-upgrade -y just

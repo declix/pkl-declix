@@ -34,12 +34,12 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - name: Install dependecies
+      - name: Install dependencies
         run: |
           sudo apt update
           sudo apt install --no-install-recommends --no-upgrade -y just
           
-      - name: Install semenatic-release dependecies
+      - name: Install semenatic-release dependencies
         run: |
           npm install \
             semantic-release \
