@@ -38,6 +38,10 @@ jobs:
         run: |
           sudo apt update
           sudo apt install --no-install-recommends --no-upgrade -y just
+          
+      - name: Install semenatic-release dependecies
+        run: |
+          npm install @semantic-release/exec -D
 
       - name: Run tests
         run: |
