@@ -41,6 +41,7 @@ jobs:
           
       - name: Install semenatic-release dependecies
         run: |
+          npm install semantic-release -D
           npm install @semantic-release/exec -D
           npm install @semantic-release/git -D
           npm install @semantic-release/github -D
