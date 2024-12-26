@@ -1,0 +1,10 @@
+import "../declix.pkl"
+
+stringContent: declix.Content = "TEST_STRING"
+
+urlContent: declix.Content = new declix.UrlContent {
+    url = "http://example.com"
+    sha256 = "000"
+}
+
+resourceContent: declix.Content = read("tests.pkl")

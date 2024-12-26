@@ -1,5 +1,6 @@
 module declix
 
+import "pkl:base"
 
 abstract class Resource { 
     fixed type: String
@@ -9,30 +10,11 @@ abstract class Resource {
 /// All resources with missing state should use this class to indicate it
 class Missing { }
 
-typealias Content = String | File | Url | Base64 | Render | Hashed;
+typealias Content = String | UrlContent | base.Resource | Render;
 
-class File {
-    file: String
-    sha256: String?
-}
-
-class Url {
+class UrlContent {
     url: String
-    sha256: String?
-}
-
-class Base64 {
-    base64: String
-    sha256: String?
-}
-
-class Hashed {
     sha256: String
-}
-
-function resource(r: Resource): Content = new Base64 {
-    base64 = r.base64
-    sha256 = r.sha256
 }
 
 abstract class Render {

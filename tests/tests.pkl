@@ -1,0 +1,7 @@
+amends "pkl:test"
+
+examples {
+    ["content"] {
+        import("content.pkl").output.text
+    }
+}
