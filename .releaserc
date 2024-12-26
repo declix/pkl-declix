@@ -1,0 +1,23 @@
+{
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        [
+            "@semantic-release/exec",
+            {
+                "publishCmd": "just release ${nextRelease.version}"
+            }
+        ],
+        [
+            "@semantic-release/github",
+            {
+                "assets": [
+                    "dist/**"
+                ]
+            }
+        ],
+        "@semantic-release/git"
+    ],
+    "tagFormat": "${version}",
+    "preset": "conventionalcommits"
+}
