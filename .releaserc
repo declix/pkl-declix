@@ -15,8 +15,7 @@
                     "dist/**"
                 ]
             }
-        ],
-        "@semantic-release/git"
+        ]
     ],
     "tagFormat": "${version}",
     "preset": "conventionalcommits"
