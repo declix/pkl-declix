@@ -19,5 +19,5 @@
         "@semantic-release/git"
     ],
     "tagFormat": "${version}",
-    "preset": "R"
+    "preset": "conventionalcommits"
 }
