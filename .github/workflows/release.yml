@@ -47,6 +47,7 @@ jobs:
           npm install @semantic-release/github -D
           npm install @semantic-release/commit-analyzer -D
           npm install @semantic-release/release-notes-generator -D
+          npm install conventional-changelog -D
           npm install conventional-changelog-conventionalcommits -D
       - name: Run tests
         run: |
