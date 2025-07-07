@@ -10,11 +10,15 @@ abstract class Resource {
 /// All resources with missing state should use this class to indicate it
 class Missing { }
 
-typealias Content = String | UrlContent | base.Resource | Render;
+typealias Content = String | UrlContent | Base64 | base.Resource | Render;
 
 class UrlContent {
     url: String
     sha256: String
+}
+
+class Base64 {
+    data: String
 }
 
 abstract class Render {

@@ -1,0 +1,34 @@
+amends "pkl:test"
+
+import "../fs/fs.pkl"
+import "../declix.pkl"
+
+local helloWorldBase64 = "SGVsbG8gV29ybGQh"
+
+examples {
+    ["fs.File with Base64 content"] {
+        new fs.File {
+            path = "/tmp/hello.txt"
+            state = new fs.FilePresent {
+                owner = "root"
+                group = "root"
+                permissions = "644"
+                content = new declix.Base64 { data = helloWorldBase64 }
+            }
+        }
+    }
+    
+    ["fs.File with Base64 content - multiline"] {
+        new fs.File {
+            path = "/tmp/multiline.txt"
+            state = new fs.FilePresent {
+                owner = "root"
+                group = "root"
+                permissions = "644"
+                content = new declix.Base64 { 
+                    data = "VGhpcyBpcyBhIG11bHRpbGluZSB0ZXh0LgpJdCBoYXMgbXVsdGlwbGUgbGluZXMuClRoaXMgaXMgdGhlIHRoaXJkIGxpbmUu"
+                }
+            }
+        }
+    }
+}

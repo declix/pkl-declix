@@ -1,0 +1,32 @@
+examples {
+  ["fs.File with Base64 content"] {
+    new {
+      type = "file"
+      id = "file:/tmp/hello.txt"
+      path = "/tmp/hello.txt"
+      state {
+        owner = "root"
+        group = "root"
+        permissions = "644"
+        content {
+          data = "SGVsbG8gV29ybGQh"
+        }
+      }
+    }
+  }
+  ["fs.File with Base64 content - multiline"] {
+    new {
+      type = "file"
+      id = "file:/tmp/multiline.txt"
+      path = "/tmp/multiline.txt"
+      state {
+        owner = "root"
+        group = "root"
+        permissions = "644"
+        content {
+          data = "VGhpcyBpcyBhIG11bHRpbGluZSB0ZXh0LgpJdCBoYXMgbXVsdGlwbGUgbGluZXMuClRoaXMgaXMgdGhlIHRoaXJkIGxpbmUu"
+        }
+      }
+    }
+  }
+}
