@@ -1,7 +1,15 @@
 {
     "plugins": [
         "@semantic-release/commit-analyzer",
-        "@semantic-release/release-notes-generator",
+        [
+            "@semantic-release/release-notes-generator",
+            {
+                "preset": "conventionalcommits",
+                "writerOpts": {
+                    "headerPartial": "## pkl-declix {{#if isPatch~}} <small>\n  {{~/if~}} {{version}}\n  {{~#if title}} \"{{title}}\"\n  {{~/if~}}\n  {{~#if date}} ({{date}})\n  {{~/if~}}\n  {{~#if isPatch~}} </small>\n  {{~/if}}\n\nThis is the {{version}} release of pkl-declix - declarative Linux system configuration using Pkl.\n\n## Installation\n\n### Option 1: PklProject Dependencies (Recommended)\n\nAdd to your `PklProject` dependencies:\n\n```\ndependencies {\n    [\"declix\"] = \"package://pkl.declix.org/pkl-declix@{{version}}\"\n}\n```\n\nThen import with short syntax:\n\n```pkl\nimport \"@declix/resources.pkl\"\nimport \"@declix/fs/fs.pkl\"\nimport \"@declix/apt/apt.pkl\"\nimport \"@declix/dpkg/dpkg.pkl\"\n```\n\n### Option 2: Direct Import\n\n```pkl\n// Main resources\namends \"package://pkl.declix.org/pkl-declix@{{version}}#/resources.pkl\"\n\n// File system resources\namends \"package://pkl.declix.org/pkl-declix@{{version}}#/fs/fs.pkl\"\n\n// APT package management\namends \"package://pkl.declix.org/pkl-declix@{{version}}#/apt/apt.pkl\"\n\n// DPKG package management\namends \"package://pkl.declix.org/pkl-declix@{{version}}#/dpkg/dpkg.pkl\"\n```\n\n"
+                }
+            }
+        ],
         [
             "@semantic-release/exec",
             {
