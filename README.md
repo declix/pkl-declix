@@ -9,6 +9,16 @@ This package provides Pkl modules for managing Linux system resources including 
 
 For installation instructions and usage examples, see the **[latest release notes](https://github.com/declix/pkl-declix/releases/latest)**.
 
+Quick start - Add to your `PklProject`:
+
+```pkl
+dependencies {
+    ["pkl-declix"] {
+        uri = "package://pkl.declix.org/pkl-declix@X.Y.Z"
+    }
+}
+```
+
 ## Development
 
 Follow https://www.conventionalcommits.org/en/v1.0.0/
