@@ -1,0 +1,77 @@
+abstract module declix.systemd
+
+import ".../declix.pkl"
+
+class Unit extends declix.Resource {
+    fixed type = "systemd"
+    fixed id = type + ":" + name
+    
+    name: String  // Must end with .service, .timer, .socket, etc.
+    state: State
+}
+
+// Primary unit states that correspond to systemd's runtime state
+typealias State = Enabled | Disabled | Masked | Missing
+
+class Enabled {
+    // Unit file exists, is enabled, and should be active
+    active: Boolean = true        // Whether unit should be running
+    autoStart: Boolean = true     // Enable on boot (systemctl enable)
+    daemonReload: Boolean = true   // Run systemctl daemon-reload
+}
+
+class Disabled {
+    // Unit file exists but is disabled
+    autoStart: Boolean = false
+    stopIfRunning: Boolean = true  // Stop if currently active
+    daemonReload: Boolean = true   // Run systemctl daemon-reload
+}
+
+class Masked {
+    // Unit is masked (prevents activation)
+    // Stronger than disabled - unit cannot be started
+    daemonReload: Boolean = true   // Run systemctl daemon-reload
+}
+
+class Missing {
+    // Unit file should not exist (will be removed)
+    daemonReload: Boolean = true   // Run systemctl daemon-reload
+}
+
+// Helper functions to create systemd units with common configurations
+
+function enabled(names: Listing<String>): Listing<declix.Resource> = new Listing {
+    for (name in names) {
+        new Unit {
+            name = name
+            state = new Enabled {}
+        }
+    }
+}
+
+function disabled(names: Listing<String>): Listing<declix.Resource> = new Listing {
+    for (name in names) {
+        new Unit {
+            name = name
+            state = new Disabled {}
+        }
+    }
+}
+
+function masked(names: Listing<String>): Listing<declix.Resource> = new Listing {
+    for (name in names) {
+        new Unit {
+            name = name
+            state = new Masked {}
+        }
+    }
+}
+
+function missing(names: Listing<String>): Listing<declix.Resource> = new Listing {
+    for (name in names) {
+        new Unit {
+            name = name
+            state = new Missing {}
+        }
+    }
+}
