@@ -41,36 +41,36 @@ class Missing {
 // Helper functions to create systemd units with common configurations
 
 function enabled(names: Listing<String>): Listing<declix.Resource> = new Listing {
-    for (name in names) {
+    for (unitName in names) {
         new Unit {
-            name = name
+            name = unitName
             state = new Enabled {}
         }
     }
 }
 
 function disabled(names: Listing<String>): Listing<declix.Resource> = new Listing {
-    for (name in names) {
+    for (unitName in names) {
         new Unit {
-            name = name
+            name = unitName
             state = new Disabled {}
         }
     }
 }
 
 function masked(names: Listing<String>): Listing<declix.Resource> = new Listing {
-    for (name in names) {
+    for (unitName in names) {
         new Unit {
-            name = name
+            name = unitName
             state = new Masked {}
         }
     }
 }
 
 function missing(names: Listing<String>): Listing<declix.Resource> = new Listing {
-    for (name in names) {
+    for (unitName in names) {
         new Unit {
-            name = name
+            name = unitName
             state = new Missing {}
         }
     }

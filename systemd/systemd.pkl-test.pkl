@@ -1,0 +1,29 @@
+amends "pkl:test"
+
+import "systemd.pkl"
+
+facts {
+  ["Unit creation works"] {
+    local unit = new systemd.Unit {
+      name = "test.service"
+      state = new systemd.Enabled {}
+    }
+    unit.name == "test.service"
+    unit.type == "systemd"
+    unit.id == "systemd:test.service"
+  }
+  
+  ["enabled() function works"] {
+    local units = systemd.enabled(new Listing { "test.service" })
+    units.length == 1
+    units[0].name == "test.service"
+    units[0].state is systemd.Enabled
+  }
+  
+  ["disabled() function works"] {
+    local units = systemd.disabled(new Listing { "test.service" })
+    units.length == 1
+    units[0].name == "test.service"
+    units[0].state is systemd.Disabled
+  }
+}
