@@ -1,0 +1,77 @@
+amends "pkl:test"
+
+import "user.pkl"
+
+examples {
+  ["User creation"] {
+    new user.User {
+      name = "testuser"
+      state = new user.UserPresent {
+        uid = 1001
+        shell = "/bin/zsh"
+        comment = "Test User"
+      }
+    }
+  }
+  
+  ["Group creation"] {
+    new user.Group {
+      name = "testgroup"
+      state = new user.GroupPresent {
+        gid = 1001
+        members = new Listing { 
+          "user1"
+          "user2"
+        }
+      }
+    }
+  }
+  
+  ["User removal"] {
+    new user.User {
+      name = "removeuser"
+      state = new user.Missing {}
+    }
+  }
+  
+  ["Group removal"] {
+    new user.Group {
+      name = "removegroup"
+      state = new user.Missing {}
+    }
+  }
+  
+  ["User with defaults"] {
+    new user.User {
+      name = "default"
+      state = new user.UserPresent {}
+    }
+  }
+  
+  ["System user"] {
+    new user.User {
+      name = "serviceuser"
+      state = new user.UserPresent {
+        system = true
+        home = "/var/lib/myapp"
+        shell = "/usr/sbin/nologin"
+        comment = "Service user"
+      }
+    }
+  }
+  
+  ["User with secondary groups"] {
+    new user.User {
+      name = "developer"
+      state = new user.UserPresent {
+        uid = 1001
+        shell = "/bin/bash"
+        groups = new Listing { 
+          "sudo"
+          "docker"
+        }
+        comment = "Developer user"
+      }
+    }
+  }
+}

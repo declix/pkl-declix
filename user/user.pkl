@@ -1,0 +1,40 @@
+abstract module declix.user
+
+import "../declix.pkl"
+
+typealias Missing = declix.Missing
+
+// User resource for managing system users
+class User extends declix.Resource {
+    fixed type = "user"
+    fixed id = type + ":" + name
+    
+    name: String
+    state: Missing | UserPresent
+}
+
+// Group resource for managing system groups
+class Group extends declix.Resource {
+    fixed type = "group"
+    fixed id = type + ":" + name
+    
+    name: String
+    state: Missing | GroupPresent
+}
+
+class UserPresent {
+    // Fields from /etc/passwd: username:password:UID:GID:GECOS:home:shell
+    uid: Int?                        // User ID
+    gid: Int?                        // Primary group ID  
+    comment: String?                 // GECOS field (full name, etc.)
+    home: String = "/nonexistent"   // Home directory path
+    shell: String = "/usr/sbin/nologin"  // Login shell
+}
+
+class GroupPresent {
+    // Fields from /etc/group: groupname:password:GID:members
+    gid: Int?                        // Group ID
+    members: Listing<String>?        // User members (comma-separated in /etc/group)
+}
+
+
