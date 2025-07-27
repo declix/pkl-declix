@@ -48,11 +48,11 @@ examples {
     }
   }
   
-  ["System user"] {
+  ["Service user"] {
     new user.User {
       name = "serviceuser"
       state = new user.UserPresent {
-        system = true
+        uid = 1001
         home = "/var/lib/myapp"
         shell = "/usr/sbin/nologin"
         comment = "Service user"
@@ -60,16 +60,14 @@ examples {
     }
   }
   
-  ["User with secondary groups"] {
+  ["Developer user"] {
     new user.User {
       name = "developer"
       state = new user.UserPresent {
-        uid = 1001
+        uid = 1002
+        gid = 1000
+        home = "/home/developer"
         shell = "/bin/bash"
-        groups = new Listing { 
-          "sudo"
-          "docker"
-        }
         comment = "Developer user"
       }
     }
