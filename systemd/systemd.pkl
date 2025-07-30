@@ -15,6 +15,7 @@ typealias State = Enabled | Disabled | Masked | Missing
 
 class Enabled {
     // Unit file exists, is enabled, and should be active
+    fixed type = "enabled"
     active: Boolean = true        // Whether unit should be running
     autoStart: Boolean = true     // Enable on boot (systemctl enable)
     daemonReload: Boolean = true   // Run systemctl daemon-reload
@@ -22,6 +23,7 @@ class Enabled {
 
 class Disabled {
     // Unit file exists but is disabled
+    fixed type = "disabled"
     autoStart: Boolean = false
     stopIfRunning: Boolean = true  // Stop if currently active
     daemonReload: Boolean = true   // Run systemctl daemon-reload
@@ -30,11 +32,13 @@ class Disabled {
 class Masked {
     // Unit is masked (prevents activation)
     // Stronger than disabled - unit cannot be started
+    fixed type = "masked"
     daemonReload: Boolean = true   // Run systemctl daemon-reload
 }
 
 class Missing {
     // Unit file should not exist (will be removed)
+    fixed type = "missing"
     daemonReload: Boolean = true   // Run systemctl daemon-reload
 }
 
