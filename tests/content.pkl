@@ -7,5 +7,13 @@ urlContent: declix.Content = new declix.UrlContent {
     sha256 = "000"
 }
 
+base64Content: declix.Content = new declix.Base64Content {
+    data = "dGVzdCBkYXRh"
+}
+
+resourceContent: declix.Content = new declix.ResourceContent {
+    resource = read("tests.pkl")
+}
+
 // we can't test read() since Resource references absolute URI
 // resourceContent: declix.Content = read("tests.pkl")

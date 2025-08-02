@@ -1,12 +1,33 @@
 examples {
   ["content"] {
-    """
+    #"""
     stringContent = "TEST_STRING"
     urlContent {
+      type = "url"
       url = "http://example.com"
       sha256 = "000"
     }
+    base64Content {
+      type = "base64"
+      data = "dGVzdCBkYXRh"
+    }
+    resourceContent {
+      type = "resource"
+      resource {
+        uri = "file:///app/pkl-declix/tests/tests.pkl"
+        text = """
+          amends "pkl:test"
+          
+          examples {
+              ["content"] {
+                  import("content.pkl").output.text
+              }
+          }
+          """
+        base64 = "YW1lbmRzICJwa2w6dGVzdCIKCmV4YW1wbGVzIHsKICAgIFsiY29udGVudCJdIHsKICAgICAgICBpbXBvcnQoImNvbnRlbnQucGtsIikub3V0cHV0LnRleHQKICAgIH0KfQ=="
+      }
+    }
     
-    """
+    """#
   }
 }

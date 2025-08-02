@@ -10,18 +10,26 @@ abstract class Resource {
 /// All resources with missing state should use this class to indicate it
 class Missing { }
 
-typealias Content = String | UrlContent | Base64 | base.Resource | Render;
+typealias Content = String | UrlContent | Base64Content | ResourceContent | RenderContent;
 
 class UrlContent {
+    fixed type: String = "url"
     url: String
     sha256: String
 }
 
-class Base64 {
+class Base64Content {
+    fixed type: String = "base64"
     data: String
 }
 
-abstract class Render {
+class ResourceContent {
+    fixed type: String = "resource"
+    resource: base.Resource
+}
+
+abstract class RenderContent {
+    fixed type: String = "render"
     abstract function render(): String
 
     _result: String = render()
