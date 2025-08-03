@@ -1,0 +1,88 @@
+examples {
+  ["User creation"] {
+    new {
+      type = "user"
+      id = "user:testuser"
+      name = "testuser"
+      state {
+        uid = 1001
+        gid = null
+        comment = "Test User"
+        home = "/nonexistent"
+        shell = "/bin/zsh"
+      }
+    }
+  }
+  ["Group creation"] {
+    new {
+      type = "group"
+      id = "group:testgroup"
+      name = "testgroup"
+      state {
+        gid = 1001
+        members {
+          "user1"
+          "user2"
+        }
+      }
+    }
+  }
+  ["User removal"] {
+    new {
+      type = "user"
+      id = "user:removeuser"
+      name = "removeuser"
+      state {}
+    }
+  }
+  ["Group removal"] {
+    new {
+      type = "group"
+      id = "group:removegroup"
+      name = "removegroup"
+      state {}
+    }
+  }
+  ["User with defaults"] {
+    new {
+      type = "user"
+      id = "user:default"
+      name = "default"
+      state {
+        uid = null
+        gid = null
+        comment = null
+        home = "/nonexistent"
+        shell = "/usr/sbin/nologin"
+      }
+    }
+  }
+  ["Service user"] {
+    new {
+      type = "user"
+      id = "user:serviceuser"
+      name = "serviceuser"
+      state {
+        uid = 1001
+        gid = null
+        comment = "Service user"
+        home = "/var/lib/myapp"
+        shell = "/usr/sbin/nologin"
+      }
+    }
+  }
+  ["Developer user"] {
+    new {
+      type = "user"
+      id = "user:developer"
+      name = "developer"
+      state {
+        uid = 1002
+        gid = 1000
+        comment = "Developer user"
+        home = "/home/developer"
+        shell = "/bin/bash"
+      }
+    }
+  }
+}

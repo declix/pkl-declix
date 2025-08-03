@@ -3,8 +3,13 @@ examples {
     """
     stringContent = "TEST_STRING"
     urlContent {
+      type = "url"
       url = "http://example.com"
       sha256 = "000"
+    }
+    base64Content {
+      type = "base64"
+      data = "dGVzdCBkYXRh"
     }
     
     """

@@ -13,7 +13,7 @@ examples {
                 owner = "root"
                 group = "root"
                 permissions = "644"
-                content = new declix.Base64 { data = helloWorldBase64 }
+                content = new declix.Base64Content { data = helloWorldBase64 }
             }
         }
     }
@@ -25,7 +25,7 @@ examples {
                 owner = "root"
                 group = "root"
                 permissions = "644"
-                content = new declix.Base64 { 
+                content = new declix.Base64Content { 
                     data = "VGhpcyBpcyBhIG11bHRpbGluZSB0ZXh0LgpJdCBoYXMgbXVsdGlwbGUgbGluZXMuClRoaXMgaXMgdGhlIHRoaXJkIGxpbmUu"
                 }
             }

@@ -9,6 +9,7 @@ examples {
         group = "root"
         permissions = "644"
         content {
+          type = "base64"
           data = "SGVsbG8gV29ybGQh"
         }
       }
@@ -24,6 +25,7 @@ examples {
         group = "root"
         permissions = "644"
         content {
+          type = "base64"
           data = "VGhpcyBpcyBhIG11bHRpbGluZSB0ZXh0LgpJdCBoYXMgbXVsdGlwbGUgbGluZXMuClRoaXMgaXMgdGhlIHRoaXJkIGxpbmUu"
         }
       }

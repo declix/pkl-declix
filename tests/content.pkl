@@ -7,5 +7,13 @@ urlContent: declix.Content = new declix.UrlContent {
     sha256 = "000"
 }
 
-// we can't test read() since Resource references absolute URI
-// resourceContent: declix.Content = read("tests.pkl")
+base64Content: declix.Content = new declix.Base64Content {
+    data = "dGVzdCBkYXRh"
+}
+
+// NOTE: ResourceContent cannot be tested reliably because read() creates a base.Resource
+// with an absolute URI that varies between environments (local vs CI)
+// Example usage would be:
+// resourceContent: declix.Content = new declix.ResourceContent {
+//     resource = read("tests.pkl")
+// }
