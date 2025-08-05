@@ -1,5 +1,7 @@
+@go.Package { name = "github.com/declix/pkl-declix/systemd" }
 abstract module declix.systemd
 
+import "@go/go.pkl"
 import ".../declix.pkl"
 
 class Unit extends declix.Resource {

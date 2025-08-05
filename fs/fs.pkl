@@ -1,5 +1,7 @@
+@go.Package { name = "github.com/declix/pkl-declix/fs" }
 abstract module declix.fs
 
+import "@go/go.pkl"
 import ".../declix.pkl"
 
 typealias Missing = declix.Missing

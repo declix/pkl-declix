@@ -1,5 +1,7 @@
+@go.Package { name = "github.com/declix/pkl-declix/apt" }
 abstract module declix.apt
 
+import "@go/go.pkl"
 import ".../declix.pkl"
 import ".../dpkg/dpkg.pkl"
 

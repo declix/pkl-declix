@@ -1,5 +1,7 @@
+@go.Package { name = "github.com/declix/pkl-declix/dpkg" }
 module declix.dpkg
 
+import "@go/go.pkl"
 import ".../declix.pkl"
 
 class Package extends declix.Resource {
