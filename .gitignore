@@ -1,3 +1,4 @@
 .jj/
 .pkl-lsp/
 *.pkl-actual.pcf
+node_modules/
